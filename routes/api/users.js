@@ -30,7 +30,7 @@ router.post('/', [
 
             // To see if the user exists
             if (user) {
-                res.status(400).json({ errors: [{ msg: 'User already exists' }] });
+                return res.status(400).json({ errors: [{ msg: 'User already exists' }] });
             }
 
             // Get users gravatar
