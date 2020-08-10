@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \npm run client\""
   },
   "repository": {
     "type": "git",
@@ -19,12 +21,15 @@
   "homepage": "https://github.com/Developer994/Devconnector_2.0_Course#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "client": "0.0.1",
     "config": "^3.3.1",
+    "create-react-app": "^3.4.1",
     "express": "^4.17.1",
     "express-validator": "^6.6.0",
     "gravatar": "^1.8.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.26",
+    "nodemon": "^2.0.4",
     "request": "^2.88.2"
   },
   "devDependencies": {
