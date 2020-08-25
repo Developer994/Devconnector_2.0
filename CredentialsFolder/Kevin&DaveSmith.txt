@@ -1,8 +1,0 @@
-Kevin Smith
-kevin@gmail.com
-Pass: KevinSmith
-
-Dave Smith
-dave@gmail.com
-Pass: DaveSmith
-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7I…Dk0fQ.B8gxTe_iQEB01lpH55g_R9loYMKosUEfgz3N6qTz6Ss
