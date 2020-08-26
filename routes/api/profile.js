@@ -12,7 +12,7 @@ const {
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
 
-// @route   GET api/profiles
+// @route   GET api/profiles/me
 // @desc    Get current user's profile
 // @access  Private
 router.get("/me", auth, async (req, res) => {
