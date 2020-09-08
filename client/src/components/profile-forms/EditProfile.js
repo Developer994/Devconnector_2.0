@@ -3,7 +3,6 @@ import { Link, withRouter } from "react-router-dom"; // The withRouter will redi
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
-import CreateProfile from "./CreateProfile";
 
 const EditProfile = ({
   profile: { profile, loading },
@@ -46,7 +45,7 @@ const EditProfile = ({
       youtube: loading || !profile.social ? "" : profile.social.youtube,
       instagram: loading || !profile.social ? "" : profile.social.instagram,
     });
-  }, [loading]);
+  }, [loading, getCurrentProfile]);
 
   const {
     company,
