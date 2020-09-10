@@ -37,6 +37,7 @@ export default function (state = initialState, action) {
         ...state,
         error: payload,
         loading: false,
+        profile: null,
       };
     case CLEAR_PROFILE: // The CLEAR_PROFILE happens when the user logs out and then the profile values of logged out get erased for the next person's log in.
       return {
