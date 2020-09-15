@@ -5,12 +5,13 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const { check, validationResult } = require("express-validator");
+const normalize = require("normalize-url");
 
 const User = require("../../models/User");
 
-// @route   POST api/users
-// @desc    Register user
-// @access  Public
+// @route    POST api/users
+// @desc     Register user
+// @access   Public
 router.post(
   "/",
   [
@@ -30,7 +31,6 @@ router.post(
     const { name, email, password } = req.body;
 
     try {
-      // See if the user exists
       let user = await User.findOne({ email });
 
       if (user) {
@@ -39,15 +39,14 @@ router.post(
           .json({ errors: [{ msg: "User already exists" }] });
       }
 
-      // Get user's gravatar
-      const avatar = gravatar.url(email, {
-        // Default size
-        s: "200",
-        // Rating
-        r: "pg",
-        // Default
-        d: "mm",
-      });
+      const avatar = normalize(
+        gravatar.url(email, {
+          s: "200",
+          r: "pg",
+          d: "mm",
+        }),
+        { forceHttps: true }
+      );
 
       user = new User({
         name,
@@ -56,7 +55,6 @@ router.post(
         password,
       });
 
-      // Encrypt the password using bcrypt
       const salt = await bcrypt.genSalt(10);
 
       user.password = await bcrypt.hash(password, salt);
@@ -72,7 +70,7 @@ router.post(
       jwt.sign(
         payload,
         config.get("jwtSecret"),
-        { expiresIn: 360000 },
+        { expiresIn: "5 days" },
         (err, token) => {
           if (err) throw err;
           res.json({ token });
