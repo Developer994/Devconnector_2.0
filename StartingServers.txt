@@ -1,2 +1,1 @@
-To start mongodb, type npm run server on the root folder in git bash.
-To start the react client server, type npm start in the client folder. 
+To concurrently start both the server and mongodb, type npm run dev
