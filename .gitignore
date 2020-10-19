@@ -1,3 +1,4 @@
 node_modules/
 default.json
 StartingServers/
+config/default.json

@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://Rez123:Rez123@devconnector-wb8l0.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken",
+    "githubToken": "b1342d4f85cfa0993254c9180922388a102e7df1"
+  }
+  
